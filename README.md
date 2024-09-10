@@ -1,2 +1,3 @@
-# helper-scripts
-a collection of scripts &amp; playbooks that make my life easier
+# Helper scripts
+
+a collection of scripts & playbooks that make my life easier

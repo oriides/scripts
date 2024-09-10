@@ -1,0 +1,46 @@
+#!/bin/bash
+
+SHOULD_TIME="8h" # modify this to match your required work hours
+ACCURACY="15m" # rounds the start time to the nearest 5m, 10m, 15m, 30m, or 60m
+TIMEKEEPING_DIR="~/Documents/0-Zeiterfassung/" # modify this to your liking
+TIMESHEET_PATH="$TIMEKEEPING_DIR$(date '+%Y-%m.klg')"
+
+###
+
+# ensure timekeeping directory exists
+mkdir -p $TIMEKEEPING_DIR
+
+# ensure .klg file for this month exists
+touch $TIMESHEET_PATH
+
+# ensure bookmark points to the current timesheet file
+klog bookmarks set $TIMESHEET_PATH
+
+# check if a date entry for today exists, if not create one
+if ! grep -q "$(date '+%Y-%m-%d')" $TIMESHEET_PATH; then
+
+    # get user input for entry type
+    echo "Please choose an item by entering its corresponding number or letter:"
+    echo "1. Work from Home (h)"
+    echo "2. Office (o)"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1|h|H)
+            echo "Working from home, starting now…"
+            label="#wfh"
+            ;;
+        2|o|O)
+            echo "Working from the office, starting now…"
+            label="#office"
+            ;;
+        *)
+            echo "Invalid choice, exiting"
+            exit 234
+            ;;
+    esac
+
+    # create new date entry in timesheet (silenced output)
+    klog create --should "$SHOULD_TIME" --summary "$label" >/dev/null
+fi
+
+klog start --round "$ACCURACY"
