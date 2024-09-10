@@ -3,9 +3,9 @@
 ACCURACY="15m" # rounds the start time to the nearest 5m, 10m, 15m, 30m, or 60m
 TIMEKEEPING_DIR="~/Documents/0-Timekeeping/" # modify this to your liking
 TIMESHEET_PATH="$TIMEKEEPING_DIR$(date '+%Y-%m.klg')"
-SSH_USER="" # user on ssh server
+SSH_USER=""   # user on ssh server
 SSH_SERVER="" # ssh server
-SSH_DIR="" # directory on ssh server
+SSH_DIR=""    # directory on ssh server
 SSH_PORT="22" # ssh port
 
 ###
@@ -14,3 +14,4 @@ klog stop --round "$ACCURACY"
 
 scp "$TIMESHEET_PATH" "$SSH_USER@$SSH_SERVER:$SSH_DIR" -P "$SSH_PORT"
 
+klog today --diff
