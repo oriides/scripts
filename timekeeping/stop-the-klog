@@ -3,7 +3,7 @@
 ACCURACY="15m" # rounds the start time to the nearest 5m, 10m, 15m, 30m, or 60m
 TIMEKEEPING_DIR="$HOME/Documents/0-Timekeeping/" # modify this to your liking
 TIMESHEET_PATH="$TIMEKEEPING_DIR$(date '+%Y-%m.klg')"
-SCP_COMMAND=""   # optional scp command for backing up the timesheet file
+SCP_COMMAND="" # optional scp command to backup the timesheet file to a server
 
 ###
 
