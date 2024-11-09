@@ -5,7 +5,7 @@ INPUT_DIR=""
 # Directory to save the output files
 OUTPUT_DIR=""
 
-# Constant Rate Factor 
+# Constant Rate Factor
 # (lower values = better quality = bigger file size)
 # ~20 for high quality source (1080p) to preserve most of the original detail
 CRF=18
@@ -13,7 +13,7 @@ CRF=18
 # (lower value = better quality compression = longer encode times)
 # ~3 if encode speed is not a consideration, otherwise ~5 for decent encode time and decent quality preservation
 PRESET=3
-# Film Grain Synthesis 
+# Film Grain Synthesis
 # (lower value = less grain = less perceived detail, depending on source)
 # ~10 for low grain (e.g. Better Call Saul), ~20 for high grain (e.g. Breaking Bad)
 GRAIN=12 
