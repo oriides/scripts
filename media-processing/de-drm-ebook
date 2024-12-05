@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash -e
 
 # Function to convert relative paths to absolute paths
 convert_to_absolute_path() {
