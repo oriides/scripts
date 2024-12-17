@@ -16,7 +16,7 @@ PRESET=3
 # Film Grain Synthesis
 # (lower value = less grain = less perceived detail, depending on source)
 # ~10 for low grain (e.g. Better Call Saul), ~20 for high grain (e.g. Breaking Bad)
-GRAIN=12 
+GRAIN=12
 
 ############################################################
 
