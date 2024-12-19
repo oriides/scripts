@@ -26,5 +26,5 @@ output_file="${BASE_DIRECTORY}/${FILM_NAME} (AV1).mkv"
 if [ -f "$input_file" ]; then
   # Run the ffmpeg command to re-encode the video
   echo "reencoding \"${input_file}\" to \"${output_file}\""
-  ffmpeg -i "${input_file}" -map 0 -c:a copy -c:s copy -c:v libsvtav1 -crf $CRF -preset $PRESET -pix_fmt yuv420p10le -svtav1-params tune=0:film-grain=$GRAIN:film-grain-denoise=0 "${output_file}"
+  ffmpeg -hide_banner -loglevel warning -i "${input_file}" -map 0 -c:a copy -c:s copy -c:v libsvtav1 -crf $CRF -preset $PRESET -pix_fmt yuv420p10le -svtav1-params tune=0:film-grain=$GRAIN:film-grain-denoise=0 "${output_file}"
 fi
