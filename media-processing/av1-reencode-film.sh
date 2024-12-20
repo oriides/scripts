@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
 # The directory containing the film files
-BASE_DIRECTORY=""
-# Directory containing the input files
-FILM_NAME=""
+BASE_DIRECTORY="path/to/directory"
+# The name of the film file (without the extension)
+FILM_NAME="Apocalypse Now"
 
 # Constant Rate Factor
 # (lower values = better quality = bigger file size)
-# ~20 for high quality source (1080p) to preserve most of the original detail
-CRF=18
+# ~14 for high quality source to preserve most of the original detail
+CRF=14
 # Encoding compression preset
 # (lower value = better quality compression = longer encode times)
-# ~3 if encode speed is not a consideration, otherwise ~5 for decent encode time and decent quality preservation
-PRESET=3
+# ~2 if encode speed is not a consideration, otherwise ~5 for decent encode time and decent quality preservation
+PRESET=2
 # Film Grain Synthesis
 # (lower value = less grain = less perceived detail, depending on source)
-# ~10 for low grain (e.g. Better Call Saul), ~20 for high grain (e.g. Breaking Bad)
+# ~10 for low grain (e.g. Better Call Saul), ~15 for high grain (e.g. Chernobyl)
 GRAIN=12
 
 ############################################################
