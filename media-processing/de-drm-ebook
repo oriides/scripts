@@ -1,4 +1,11 @@
-#!/usr/bin/env bash -e
+#!/usr/bin/env bash
+set -e
+
+usage() {
+	echo "Usage: $0 <path_to_acsm_file> [path_to_adept_credentials_directory]"
+	echo "Example: $0 /path/to/book.acsm"
+	echo "Example: $0 /path/to/book.acsm /path/to/adept-credentials"
+}
 
 # Function to convert relative paths to absolute paths
 convert_to_absolute_path() {
@@ -31,9 +38,9 @@ check_adept_credentials_path() {
 		echo ""
 		echo "!!!     (*) use --anonymous in place of --username, --password if you do not have an ADE account."
 		echo "!!!     (*) credentials will be saved in the following path: \"$CREDENTIALS_PATH\""
-        
-        # preemtively create the directory where the credentails will be saved
-        mkdir -p $CREDENTIALS_PATH
+
+		# preemtively create the directory where the credentails will be saved
+		mkdir -p $CREDENTIALS_PATH
 
 		# reset so the appropriate function in the main script is called
 		CREDENTIALS_PATH=""
@@ -60,6 +67,13 @@ check_acsm_file() {
 }
 
 # Main script
+
+# Check if the number of arguments is less than 1
+if [ "$#" -lt 1 ]; then
+	usage
+	exit 1
+fi
+
 ACSM_FILE=$1
 ACSM_CRED_DIR=$2
 

@@ -4,12 +4,12 @@ usage() {
     echo "Usage: $0 <input>"
     echo "Example: $0 git/htop/ruby"
     echo "which opens a zsh shell with the specified tools installed."
-    exit 1
 }
 
 # Check if the number of arguments isn't exactly 1
 if [ "$#" -ne 1 ]; then
     usage
-else
-    docker run -it --rm nixery.dev/shell/zsh/"$1" zsh
+    exit 1
 fi
+
+docker run -it --rm nixery.dev/shell/zsh/"$1" zsh
